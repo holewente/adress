@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Cim</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Add entry</h5>
+              <p class="card-text">Name: <input type="text" name="nev" id="nev"> </p>
+              <p class="card-text">Tel: <input type="text" name="tel" id="tel"> </p>
+              <p class="card-text">  Email: <input type="text" name="email" id="email"></p>
+              <input type="button" value="Add" onclick="hozzaad()">
+              <input type="button" value="Összes törlése" onclick="del()">
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <ul class="card-body megjelenites">
+              
+            </ul>
+          </div>
+    </div>
+    <script src="data.js"></script>
+</body>
+</html>
