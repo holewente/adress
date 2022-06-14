@@ -26,10 +26,10 @@ let kapcsolatok=JSON.parse(localStorage.getItem('szemelyek'))
 function show(){
     document.querySelector(".megjelenites").innerHTML=""
     for(let obj of kapcsolatok){
-        console.log(obj)
+        //console.log(obj)
         document.querySelector('.megjelenites').innerHTML+=`
-        <div class="border-left">
-                <li id="${obj.id}" onclick="mutat(this)">${obj.name} <i class="fa-solid btn fa-trash-can" onclick="torol(this)"></i></li>
+        <div class="border-left elem${obj.name}">
+                <li id="${obj.id}" onclick="mutat(this)">${obj.name} <i class="fa-solid kuka btn fa-trash-can" onclick="torol(this)"></i></li>
         </div>
         `
     }
@@ -44,6 +44,11 @@ function hozzaad(){
     let n=document.getElementById('nev').value
     let sz=document.getElementById('tel').value
     let c=document.getElementById('email').value
+    if(n=="" || sz=="" || c==""){
+        alert("Adatok kitöltése kötelező!")
+        
+    }
+    else{
     let newContact={}
     newContact.id=kapcsolatok.length+1
     newContact.name=n
@@ -53,11 +58,28 @@ function hozzaad(){
     console.log(kapcsolatok)
     localStorage['szemelyek']=JSON.stringify(kapcsolatok)
     show()
+    }
 }
 
 function torol(obj){
-    document.getElementById(`${obj.id}`).innerHTML=""
+    console.log(obj.parentElement.id)
+    let id=obj.parentElement.id
+    //console.log(id)
+    let newArr=kapcsolatok.filter(obj=>id != obj.id)
+    kapcsolatok=newArr
+    localStorage['szemelyek']=JSON.stringify(kapcsolatok)
+    //document.querySelector('li').innerHTML=""
+    show()
 }
 function del(){
     document.querySelector('.megjelenites').innerHTML=""
+    localStorage.clear()
+    show()
+}
+function checkemail(obj){
+    console.log(obj.value)
+    if(!obj.value.includes('@')){
+        alert("Helytelen email cím!")
+        obj.value=""
+    }
 }
